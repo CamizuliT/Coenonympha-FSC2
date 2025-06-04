@@ -1,0 +1,25 @@
+// Priors and rules file 
+// *********************
+[PARAMETERS]
+//#isInt? #name #dist.#min #max
+//all Ns are in number of haploid individuals
+1 NCURA unif 1000 1e6 output
+1 NCURG unif 1000 1e6 output
+1 NCURL unif 1000 1e6 output
+1 NCURH unif 1000 1e6 output
+0 MIGAG logunif 1e-8 1e-2 output
+0 MIGGA logunif 1e-8 1e-2 output
+0 MIGAL logunif 1e-8 1e-2 output
+0 MIGLA logunif 1e-8 1e-2 output
+0 MIGAH logunif 1e-8 1e-2 output
+0 MIGHA logunif 1e-8 1e-2 output
+1 TDIV1 unif 1e6 5e6 output
+1 NANC1 unif 1000 1e6 output
+1 TDIV2 unif TDIV1 5e6 output paramInRange
+1 NANC2 unif 1000 1e6 output
+1 TDIV3 unif TDIV2 5e6 output paramInRange
+1 NANC3 unif 1000 1e6 output
+[COMPLEX PARAMETERS]
+0 RESIZE1 = NANC1/NCURA hide
+0 RESIZE2 = NANC2/NANC1 hide
+0 RESIZE3 = NANC3/NANC2 hide
